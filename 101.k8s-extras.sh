@@ -36,6 +36,8 @@ echo "===================================================="
 kubectl create -f kubernetes/helm-values/parse-data-configmap.yaml
 kubectl create -f kubernetes/helm-values/quantum-parse-data.yaml
 
+MYSQL_ROOT_PASSWORD=$(kubectl get secret --namespace default my-release-mysql -o jsonpath="{.data.mysql-root-password}" | base64 --decode; echo)
+kubectl create secret generic db-pass --from-literal=password=$MYSQL_ROOT_PASSWORD
 
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
