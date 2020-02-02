@@ -1,0 +1,3 @@
+initializationFiles:
+  first-db.sql: |-
+    CREATE DATABASE IF NOT EXISTS first DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;

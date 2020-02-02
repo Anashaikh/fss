@@ -1,0 +1,21 @@
+pipeline {
+    agent {
+        kubernetes {
+            label 'flight-schedule-service'
+            yamlFile 'quantum-parse-data-pod.yaml'
+        }
+    }
+ 
+        stage('Deployment') {
+            steps {
+                script {
+                  container('install') {
+                      // Install flight schedule service
+                      sh("kubectl create -f kubernetes/helm-values/parse-data-configmap.yaml")
+                      sh("kubectl create -f kubernetes/helm-values/quantum-parse-data.yaml")
+                    }
+                }
+            }
+        }
+    }
+}

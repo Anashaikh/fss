@@ -1,0 +1,28 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: parse-data-into-mysql-db
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: ubuntu
+        name: python-container
+        command: ["/bin/sh","-c"]
+        args: ["apt-get update; apt-get install python -y && apt-get install python-pip -y && pip install pymysql && curl https://raw.githubusercontent.com/jpatokal/openflights/master/data/airlines.dat -o /airlines.dat && python python.py"]
+        volumeMounts:
+        - name: mysql-configmap-volume
+          mountPath: /python.py
+          subPath: python.py
+      volumes:
+      - name: mysql-configmap-volume
+        configMap:
+          name: parse-data-mysql
