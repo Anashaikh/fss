@@ -22,6 +22,12 @@ spec:
         - name: mysql-configmap-volume
           mountPath: /python.py
           subPath: python.py
+        env:
+          - name: db_pass
+            valueFrom:
+              secretKeyRef:
+                name: db-pass
+                key: password
       volumes:
       - name: mysql-configmap-volume
         configMap:
