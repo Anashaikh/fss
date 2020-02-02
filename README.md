@@ -161,9 +161,9 @@ This script will install some important pieces of your Kubernetes cluster:
 - `Grafana`
 - `Prometheus`
    
-I have used Helm to install the flight schedule service pod, this can also be installed via Jenkins CI/CD.
-A jenkine pipeline script is provided inside the pipeline directory.
-In order to create the Jenkins Pipeline, credentials needs to be created on Jenkins for accessing Kubernetes, Webhooks can be configured through github and then added to the Jenkins Job.
+I have used kubectl to install the flight schedule service pod, this can also be installed via Jenkins CI/CD.
+A Jenkins pipeline script is also provided inside the pipeline directory.
+In order to create the Jenkins Jobs, credentials needs to be added on Jenkins for accessing Kubernetes, Webhooks can be configured through github and then added back to the Jenkins Job.
 Afterwards a job needs to be created which will deploy the application on the Kubernetes Cluster
 ---
 ###### *Navigate* | [*Top*](#terraform-aws-k8s-pipeline) | [*1) Requisites and Configurations*](#1-requisites-and-Configurations-before-start) | [*2) Infrastructure Creation*](#2-infrastructure-creation)  [*3) Infrastructure exclusion*](#3-infrastructure-exclusion) 
