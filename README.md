@@ -1,6 +1,6 @@
 # terraform-aws-k8s-pipeline for installing Flight Schedule Service for Quantum Airlines
 This stack will provide a CI/CD infrastructure on AWS using Terraform and Kubernetes (using kops).
-Helm will install External-dns, Jenkins, Flight Schedule Service pod, mysql, grafana and prometheus 
+Helm will install External-dns, Jenkins, (kubectl) Flight Schedule Service pod, mysql, grafana and prometheus 
 server
 
 ---
