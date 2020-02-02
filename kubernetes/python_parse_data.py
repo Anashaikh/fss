@@ -14,8 +14,8 @@ with open('airlines.dat', 'rt') as f:
 
 
 #Connect with database
-cnx = pymysql.connect(user = '', password = '',
-						  host = '',
+cnx = pymysql.connect(user = 'root', password = '$db_pass',
+						  host = 'my-release-mysql.default.svc.cluster.local',
 						  database = 'first')
 cursor = cnx.cursor()
 
